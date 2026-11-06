@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#012D6E">
+<title>Кёниг за ночь — угадаешь, сколько стоит ночь в Калининграде?</title>
+<meta name="description" content="Игра-викторина: 50 реальных квартир Калининграда, 10 раундов. Твоя интуиция против реальных цен.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23012D6E'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23D5E5B5' font-family='Arial' font-weight='bold'%3EК%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ============ СТАРТОВЫЙ ЭКРАН ============ -->
+<section id="screen-start" class="screen screen--start">
+  <div class="start__bg" aria-hidden="true">
+    <div class="start__collage" id="start-collage"></div>
+    <div class="start__bg-tint"></div>
+  </div>
+  <div class="start__content">
+    <div class="start__badge">Калининград · посуточная аренда</div>
+    <h1 class="start__title">
+      <span class="start__title-row">КЁНИГ</span>
+      <span class="start__title-row start__title-row--accent">ЗА НОЧЬ</span>
+    </h1>
+    <p class="start__slogan">Угадаешь, сколько стоит ночь в&nbsp;этом городе?</p>
+    <p class="start__desc">50 реальных квартир Калининграда. 10&nbsp;раундов. Твоя интуиция против реальных цен.</p>
+
+    <ul class="start__rules">
+      <li><strong>10</strong><span>квартир</span></li>
+      <li><strong>2</strong><span>гостя</span></li>
+      <li><strong>1</strong><span>ночь</span></li>
+      <li><strong>1000</strong><span>макс. баллов</span></li>
+    </ul>
+
+    <button class="btn btn--primary btn--xl" id="btn-start">
+      Начать игру
+      <svg class="btn__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <p class="start__note">Цены в игре — реальные объявления Avito на одну ночь для двух гостей, 14–15&nbsp;ноября 2026&nbsp;года. На другие даты они могут отличаться.</p>
+  </div>
+</section>
+
+<!-- ============ ИГРОВОЙ ЭКРАН ============ -->
+<section id="screen-game" class="screen screen--game" hidden>
+  <header class="game__header">
+    <div class="game__header-top">
+      <div class="game__logo">КЁНИГ<span>ЗА&nbsp;НОЧЬ</span></div>
+      <div class="game__round" id="game-round">01&nbsp;/&nbsp;10</div>
+      <div class="game__score" id="game-score-wrap" title="Всего баллов">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 15 8.5 22 9.3 17 14l1.2 7L12 17.8 5.8 21 7 14 2 9.3 9 8.5Z" fill="currentColor"/></svg>
+        <span id="game-score">0</span>
+      </div>
+    </div>
+    <div class="progress" role="progressbar" aria-label="Прогресс игры" aria-valuemin="0" aria-valuemax="10" aria-valuenow="1">
+      <div class="progress__bar" id="progress-bar"></div>
+    </div>
+  </header>
+
+  <main class="game__main" id="game-main"><!-- карточка раунда рендерится из JS --></main>
+</section>
+
+<!-- ============ ИТОГОВЫЙ ЭКРАН ============ -->
+<section id="screen-result" class="screen screen--result" hidden>
+  <div id="result-main"><!-- рендерится из JS --></div>
+</section>
+
+<!-- ============ ЭКРАН «МОИ ОТВЕТЫ» ============ -->
+<section id="screen-answers" class="screen screen--answers" hidden>
+  <div class="answers__wrap">
+    <div class="answers__head">
+      <h2 class="answers__title">Мои ответы</h2>
+      <button class="btn btn--ghost btn--sm" id="btn-back-result">← К результатам</button>
+    </div>
+    <div id="answers-list" class="answers__list"><!-- рендерится из JS --></div>
+  </div>
+</section>
+
+<script src="data/listings.js"></script>
+<script src="js/game.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
